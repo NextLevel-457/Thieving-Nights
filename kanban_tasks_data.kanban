@@ -1,0 +1,126 @@
+{
+	"categories": [
+		{
+			"uuid": "1a4cc9c6-303c-4692-88eb-c7dbf174368b",
+			"title": "Helper Classes",
+			"color": "ff0000"
+		},
+		{
+			"uuid": "74bb7cd0-3f46-4b92-884c-afd7fdc762e9",
+			"title": "Gameplay",
+			"color": "ff6c00"
+		},
+		{
+			"uuid": "1b4c6cf5-cb8c-4261-9636-72bbf4104b8e",
+			"title": "UI",
+			"color": "ffef00"
+		},
+		{
+			"uuid": "e1482c97-663e-4704-a3f0-282fecfe9772",
+			"title": "AI",
+			"color": "20ff00"
+		},
+		{
+			"uuid": "69dc4c72-6a17-4f15-a8ce-0810a1b197a7",
+			"title": "Mechanics",
+			"color": "00f9ff"
+		},
+		{
+			"uuid": "57b22daf-831b-44f8-9b48-091e19da268a",
+			"title": "Animatronics",
+			"color": "0028ff"
+		},
+		{
+			"uuid": "c07bd270-d9dd-4138-951c-74bcdb78bf1d",
+			"title": "Assets",
+			"color": "6e00ff"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "beb7ebdc-3540-42eb-b6c5-8f7a69118702",
+			"title": "Todo",
+			"tasks": [
+				"994e05ba-4309-4bac-8254-89b7cc3845e2",
+				"58e878e8-0334-43aa-bf6b-99d87875916e"
+			]
+		},
+		{
+			"uuid": "68af9e37-a254-49e0-9f34-c0ae176e1829",
+			"title": "Doing",
+			"tasks": [
+				"b3164372-79cc-411c-b37d-6d03a81f8092"
+			]
+		},
+		{
+			"uuid": "14e50906-d17f-46d0-9095-b2f4de727039",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "b3164372-79cc-411c-b37d-6d03a81f8092",
+			"title": "Add door options for Room class",
+			"description": "",
+			"category": "1a4cc9c6-303c-4692-88eb-c7dbf174368b",
+			"steps": []
+		},
+		{
+			"uuid": "994e05ba-4309-4bac-8254-89b7cc3845e2",
+			"title": "Automatic building generation",
+			"description": "",
+			"category": "69dc4c72-6a17-4f15-a8ce-0810a1b197a7",
+			"steps": []
+		},
+		{
+			"uuid": "58e878e8-0334-43aa-bf6b-99d87875916e",
+			"title": "Model building assets",
+			"description": "",
+			"category": "c07bd270-d9dd-4138-951c-74bcdb78bf1d",
+			"steps": [
+				{
+					"details": "Table",
+					"done": false
+				},
+				{
+					"details": "Chair",
+					"done": false
+				},
+				{
+					"details": "Stage",
+					"done": false
+				},
+				{
+					"details": "Endo",
+					"done": false
+				},
+				{
+					"details": "Monitor",
+					"done": false
+				},
+				{
+					"details": "Camera",
+					"done": false
+				},
+				{
+					"details": "Crate",
+					"done": false
+				}
+			]
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"beb7ebdc-3540-42eb-b6c5-8f7a69118702"
+			],
+			[
+				"68af9e37-a254-49e0-9f34-c0ae176e1829"
+			],
+			[
+				"14e50906-d17f-46d0-9095-b2f4de727039"
+			]
+		]
+	}
+}
