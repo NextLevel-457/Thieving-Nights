@@ -31,6 +31,7 @@ script = ExtResource("1_3ypi1")
 
 [node name="Wall1Node" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 2.5, 0)
+visible = false
 
 [node name="Top" type="MeshInstance3D" parent="Wall1Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
@@ -54,7 +55,6 @@ mesh = SubResource("BoxMesh_wxs0w")
 
 [node name="Wall1" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 2.5, 0)
-visible = false
 mesh = SubResource("BoxMesh_8tif8")
 
 [node name="Wall2" type="MeshInstance3D" parent="."]

@@ -27,12 +27,17 @@ func _ready():
 		resize()
 
 var last_frame_dimensions: Vector3 = dimensions
+var last_frame_doors: Array[bool] = [wall_1_door,wall_2_door,wall_3_door,wall_4_door]
 
 func _process(delta):
 	if Engine.is_editor_hint():
 		if dimensions != last_frame_dimensions:
 			resize()
-	
+			rebuild()
+		if last_frame_doors != [wall_1_door,wall_2_door,wall_3_door,wall_4_door]:
+			rebuild()
+		
+		last_frame_doors = [wall_1_door,wall_2_door,wall_3_door,wall_4_door]
 		last_frame_dimensions = dimensions
 
 func resize():
@@ -96,4 +101,4 @@ func rebuild():
 		# Resizing the side of the frame
 		$Wall1Node/Side1.mesh.size.z = (dimensions.z - 1.5) / 2
 		# Positioning the side of the frame
-		$Wall1Node/Side1.position.z
+		$Wall1Node/Side1.position.z = ((dimensions.z - 1.5) / 2) / 2
