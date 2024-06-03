@@ -21,3 +21,8 @@ Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/easy_charts/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
+
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="Rooms"

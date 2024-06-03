@@ -9,7 +9,6 @@ class_name Room
 @onready var wall_2_mesh = $Wall2
 @onready var wall_3_mesh = $Wall3
 @onready var wall_4_mesh = $Wall4
-
 @onready var wall_1_node = $Wall1Node
 
 @export var dimensions: Vector3 = Vector3(5,5,5)
@@ -25,6 +24,8 @@ func _ready():
 		pass
 	else:
 		resize()
+		rebuild()
+		generate_collisions()
 
 var last_frame_dimensions: Vector3 = dimensions
 var last_frame_doors: Array[bool] = [wall_1_door,wall_2_door,wall_3_door,wall_4_door]
@@ -87,7 +88,6 @@ func resize():
 
 func rebuild():
 	if wall_1_door:
-		
 		# Replacing the base wall mesh with a more complex group of meshes for the door frame
 		wall_1_mesh.hide()
 		wall_1_node.show()
@@ -113,3 +113,14 @@ func rebuild():
 	else:
 		wall_1_mesh.show()
 		wall_1_node.hide()
+
+func generate_collisions():
+	if wall_1_door:
+		for mesh in wall_1_node.get_children():
+			var collision: CollisionPolygon3D = CollisionPolygon3D.new()
+			collision.polygon = mesh.create_trimesh_collision()
+			wall_1_node.add_child(collision)
+	else:
+		var collision: CollisionPolygon3D = CollisionPolygon3D.new()
+		collision.polygon = wall_1_mesh.create_trimesh_collision()
+		wall_1_mesh.add_child(collision)
