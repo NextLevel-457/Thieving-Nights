@@ -92,6 +92,9 @@ func rebuild():
 		wall_1_mesh.hide()
 		wall_1_node.show()
 		
+		# Positioning the frame along the x axis
+		$Wall1Node.position.x = -((dimensions.x - 0.5) / 2)
+		
 		# Resizing the top of the frame
 		$Wall1Node/Top.mesh.size.y = dimensions.y - 3.5
 		$Wall1Node/Top.mesh.size.z = dimensions.z
