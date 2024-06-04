@@ -26,14 +26,14 @@
 			"color": "00f9ff"
 		},
 		{
-			"uuid": "57b22daf-831b-44f8-9b48-091e19da268a",
-			"title": "Animatronics",
-			"color": "0028ff"
+			"uuid": "6cbd24c6-3cbf-4cb3-a1ea-ade9a802c6eb",
+			"title": "Modeling",
+			"color": "000aff"
 		},
 		{
-			"uuid": "c07bd270-d9dd-4138-951c-74bcdb78bf1d",
-			"title": "Assets",
-			"color": "6e00ff"
+			"uuid": "74d30aae-c39f-46c2-8362-9e84d246dae9",
+			"title": "Social",
+			"color": "c700ff"
 		}
 	],
 	"stages": [
@@ -41,15 +41,19 @@
 			"uuid": "beb7ebdc-3540-42eb-b6c5-8f7a69118702",
 			"title": "Todo",
 			"tasks": [
-				"994e05ba-4309-4bac-8254-89b7cc3845e2",
-				"58e878e8-0334-43aa-bf6b-99d87875916e"
+				"039ab90a-5d3b-4321-8ca4-33de5d3083c4",
+				"d19c12d2-103b-47ba-9220-bca26b41256e",
+				"e6e36235-0d4d-4390-a24d-53c571381e84",
+				"75f377fe-867d-448c-b48f-e318872e07d2",
+				"18c14976-c498-49f0-96ba-3be429df22a1",
+				"76ba92eb-3033-4df9-a097-d85735705505"
 			]
 		},
 		{
 			"uuid": "68af9e37-a254-49e0-9f34-c0ae176e1829",
 			"title": "Doing",
 			"tasks": [
-				"b3164372-79cc-411c-b37d-6d03a81f8092"
+				"72a62c8c-65d7-421c-9a2d-56b4778a190b"
 			]
 		},
 		{
@@ -60,54 +64,53 @@
 	],
 	"tasks": [
 		{
-			"uuid": "b3164372-79cc-411c-b37d-6d03a81f8092",
-			"title": "Add door options for Room class",
+			"uuid": "72a62c8c-65d7-421c-9a2d-56b4778a190b",
+			"title": "Finish Room class",
 			"description": "",
 			"category": "1a4cc9c6-303c-4692-88eb-c7dbf174368b",
 			"steps": []
 		},
 		{
-			"uuid": "994e05ba-4309-4bac-8254-89b7cc3845e2",
-			"title": "Automatic building generation",
+			"uuid": "039ab90a-5d3b-4321-8ca4-33de5d3083c4",
+			"title": "Model Endoskeleton",
+			"description": "",
+			"category": "6cbd24c6-3cbf-4cb3-a1ea-ade9a802c6eb",
+			"steps": []
+		},
+		{
+			"uuid": "d19c12d2-103b-47ba-9220-bca26b41256e",
+			"title": "Start procedual generation",
 			"description": "",
 			"category": "69dc4c72-6a17-4f15-a8ce-0810a1b197a7",
 			"steps": []
 		},
 		{
-			"uuid": "58e878e8-0334-43aa-bf6b-99d87875916e",
-			"title": "Model building assets",
+			"uuid": "e6e36235-0d4d-4390-a24d-53c571381e84",
+			"title": "Rig Endoskeleton",
 			"description": "",
-			"category": "c07bd270-d9dd-4138-951c-74bcdb78bf1d",
-			"steps": [
-				{
-					"details": "Table",
-					"done": false
-				},
-				{
-					"details": "Chair",
-					"done": false
-				},
-				{
-					"details": "Stage",
-					"done": false
-				},
-				{
-					"details": "Endo",
-					"done": false
-				},
-				{
-					"details": "Monitor",
-					"done": false
-				},
-				{
-					"details": "Camera",
-					"done": false
-				},
-				{
-					"details": "Crate",
-					"done": false
-				}
-			]
+			"category": "6cbd24c6-3cbf-4cb3-a1ea-ade9a802c6eb",
+			"steps": []
+		},
+		{
+			"uuid": "75f377fe-867d-448c-b48f-e318872e07d2",
+			"title": "Finish procedual generation",
+			"description": "",
+			"category": "69dc4c72-6a17-4f15-a8ce-0810a1b197a7",
+			"steps": []
+		},
+		{
+			"uuid": "18c14976-c498-49f0-96ba-3be429df22a1",
+			"title": "Model assets",
+			"description": "",
+			"category": "6cbd24c6-3cbf-4cb3-a1ea-ade9a802c6eb",
+			"steps": []
+		},
+		{
+			"uuid": "76ba92eb-3033-4df9-a097-d85735705505",
+			"title": "Post teasers",
+			"description": "",
+			"category": "74d30aae-c39f-46c2-8362-9e84d246dae9",
+			"steps": []
 		}
 	],
 	"layout": {

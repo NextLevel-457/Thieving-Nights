@@ -12,7 +12,7 @@ size = Vector3(1.125, 2.5, 0.5)
 size = Vector3(1.125, 2.5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yitwq"]
-size = Vector3(4, 1.5, 0.5)
+size = Vector3(5, 1.5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_aitxe"]
 size = Vector3(5, 0.5, 5)
@@ -52,6 +52,7 @@ mesh = SubResource("BoxMesh_3sjjc")
 
 [node name="Wall2Node" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.25)
+visible = false
 collision_layer = 2
 
 [node name="Top" type="MeshInstance3D" parent="Wall2Node"]
@@ -80,7 +81,6 @@ mesh = SubResource("BoxMesh_8tif8")
 
 [node name="Wall2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.25)
-visible = false
 mesh = SubResource("BoxMesh_2lvwr")
 
 [node name="Wall3" type="MeshInstance3D" parent="."]
