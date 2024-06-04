@@ -1,9 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgpjxoygnvyy4"]
+[gd_scene load_steps=5 format=3 uid="uid://dgpjxoygnvyy4"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_cp0vl"]
 [ext_resource type="Script" path="res://Scripts/ability_grab.gd" id="2_l5dmv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_euj4i"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x80rp"]
 
 [node name="Player" type="CharacterBody3D"]
 disable_mode = 2
@@ -34,3 +36,4 @@ script = ExtResource("2_l5dmv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_x80rp")
