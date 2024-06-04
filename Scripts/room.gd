@@ -12,6 +12,7 @@ class_name Room
 @onready var wall_1_node = $Wall1Node
 @onready var wall_2_node = $Wall2Node
 @onready var wall_3_node = $Wall3Node
+@onready var wall_4_node = $Wall4Node
 
 @export var dimensions: Vector3 = Vector3(5,5,5)
 
@@ -169,6 +170,33 @@ func rebuild():
 	else:
 		wall_3_mesh.show()
 		get_node("Wall3Node").hide()
+	
+	if wall_4_door:
+		# Replacing the base wall mesh with a more complex group of meshes for the door frame
+		wall_4_mesh.hide()
+		get_node("Wall4Node").show()
+		
+		# Positioning the frame along the z axis
+		$Wall4Node.position.z = ((dimensions.z - 0.5) / 2)
+		
+		# Resizing the top of the frame
+		$Wall4Node/Top.mesh.size.y = dimensions.y - 3.5
+		$Wall4Node/Top.mesh.size.x = dimensions.x - 1.0
+		# Positioning the top of the frame
+		$Wall4Node/Top.position.y = (dimensions.y - (($Wall2Node/Top.mesh.size.y / 2)) - 0.5) - 2.5
+		
+		# Resizing the side of the frame
+		$Wall4Node/Side1.mesh.size.x = (dimensions.x - 2.5) / 2
+		# Positioning the side of the frame
+		$Wall4Node/Side1.position.x = -((((dimensions.x - 1.5) / 2) / 2) + 0.5)
+		
+		# Resizing the other side of the frame
+		$Wall4Node/Side2.mesh.size.x = (dimensions.x - 2.5) / 2
+		# Positioning the other side of the frame
+		$Wall4Node/Side2.position.x = ((((dimensions.x - 1.5) / 2) / 2) + 0.5)
+	else:
+		wall_4_mesh.show()
+		get_node("Wall4Node").hide()
 
 func generate_collisions():
 	if wall_1_door:

@@ -90,6 +90,23 @@ mesh = SubResource("BoxMesh_own0x")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 1.625)
 mesh = SubResource("BoxMesh_3sjjc")
 
+[node name="Wall4Node" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 2.25)
+visible = false
+collision_layer = 2
+
+[node name="Top" type="MeshInstance3D" parent="Wall4Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+mesh = SubResource("BoxMesh_ifx36")
+
+[node name="Side1" type="MeshInstance3D" parent="Wall4Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.375, -0.75, 0)
+mesh = SubResource("BoxMesh_2sbsn")
+
+[node name="Side2" type="MeshInstance3D" parent="Wall4Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.375, -0.75, 0)
+mesh = SubResource("BoxMesh_rxl38")
+
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 mesh = SubResource("BoxMesh_aitxe")
