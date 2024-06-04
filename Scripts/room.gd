@@ -125,19 +125,19 @@ func rebuild():
 		
 		# Resizing the top of the frame
 		$Wall2Node/Top.mesh.size.y = dimensions.y - 3.5
-		$Wall2Node/Top.mesh.size.x = dimensions.x
+		$Wall2Node/Top.mesh.size.x = dimensions.x - 1.0
 		# Positioning the top of the frame
 		$Wall2Node/Top.position.y = (dimensions.y - (($Wall2Node/Top.mesh.size.y / 2)) - 0.5) - 2.5
 		
 		# Resizing the side of the frame
-		#$Wall1Node/Side1.mesh.size.z = (dimensions.z - 1.5) / 2
+		$Wall2Node/Side1.mesh.size.x = (dimensions.x - 2.5) / 2
 		# Positioning the side of the frame
-		#$Wall1Node/Side1.position.z = ((-dimensions.z - 1.5) / 2) / 2
+		$Wall2Node/Side1.position.x = -((((dimensions.x - 1.5) / 2) / 2) + 0.5)
 		
 		# Resizing the other side of the frame
-		#$Wall1Node/Side2.mesh.size.z = (dimensions.z - 1.5) / 2
+		$Wall2Node/Side2.mesh.size.x = (dimensions.x - 2.5) / 2
 		# Positioning the other side of the frame
-		#$Wall1Node/Side2.position.z = ((dimensions.z + 1.5) / 2) / 2
+		$Wall2Node/Side2.position.x = ((((dimensions.x - 1.5) / 2) / 2) + 0.5)
 	else:
 		wall_2_mesh.show()
 		get_node("Wall2Node").hide()

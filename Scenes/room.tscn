@@ -1,18 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://w1mf8ycl5vr8"]
+[gd_scene load_steps=13 format=3 uid="uid://w1mf8ycl5vr8"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_3ypi1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hfqq0"]
-size = Vector3(0.5, 1.5, 5)
+size = Vector3(0.5, 15.5, 13)
 
 [sub_resource type="BoxMesh" id="BoxMesh_own0x"]
-size = Vector3(1.125, 2.5, 0.5)
+size = Vector3(0.5, 2.5, 5.75)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3sjjc"]
-size = Vector3(1.125, 2.5, 0.5)
+size = Vector3(0.5, 2.5, 5.75)
 
-[sub_resource type="BoxMesh" id="BoxMesh_yitwq"]
-size = Vector3(5, 1.5, 0.5)
+[sub_resource type="BoxMesh" id="BoxMesh_ifx36"]
+size = Vector3(22, 15.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2sbsn"]
+size = Vector3(10.25, 2.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rxl38"]
+size = Vector3(10.25, 2.5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_aitxe"]
 size = Vector3(5, 0.5, 5)
@@ -34,38 +40,38 @@ collision_layer = 2
 script = ExtResource("1_3ypi1")
 
 [node name="Wall1Node" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 2.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 2.5, 0)
 visible = false
 collision_layer = 2
 
 [node name="Top" type="MeshInstance3D" parent="Wall1Node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.25, 0)
 mesh = SubResource("BoxMesh_hfqq0")
 
 [node name="Side1" type="MeshInstance3D" parent="Wall1Node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -1.625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -3.625)
 mesh = SubResource("BoxMesh_own0x")
 
 [node name="Side2" type="MeshInstance3D" parent="Wall1Node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 1.625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 3.625)
 mesh = SubResource("BoxMesh_3sjjc")
 
 [node name="Wall2Node" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -6.25)
 visible = false
 collision_layer = 2
 
 [node name="Top" type="MeshInstance3D" parent="Wall2Node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
-mesh = SubResource("BoxMesh_yitwq")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.25, 0)
+mesh = SubResource("BoxMesh_ifx36")
 
 [node name="Side1" type="MeshInstance3D" parent="Wall2Node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.437, -0.75, 0)
-mesh = SubResource("BoxMesh_own0x")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.875, -0.75, 0)
+mesh = SubResource("BoxMesh_2sbsn")
 
 [node name="Side2" type="MeshInstance3D" parent="Wall2Node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.437, -0.75, 0)
-mesh = SubResource("BoxMesh_3sjjc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.875, -0.75, 0)
+mesh = SubResource("BoxMesh_rxl38")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
