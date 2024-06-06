@@ -1,7 +1,7 @@
 @tool
 extends Node3D
 
-class_name Room
+class_name RoomGenerator
 
 @onready var floor_mesh = $Floor
 @onready var ceiling_mesh = $Ceiling
