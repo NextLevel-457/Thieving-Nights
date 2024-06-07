@@ -41,8 +41,6 @@
 			"uuid": "beb7ebdc-3540-42eb-b6c5-8f7a69118702",
 			"title": "Todo",
 			"tasks": [
-				"d19c12d2-103b-47ba-9220-bca26b41256e",
-				"75f377fe-867d-448c-b48f-e318872e07d2",
 				"18c14976-c498-49f0-96ba-3be429df22a1",
 				"76ba92eb-3033-4df9-a097-d85735705505"
 			]
@@ -51,13 +49,14 @@
 			"uuid": "68af9e37-a254-49e0-9f34-c0ae176e1829",
 			"title": "Doing",
 			"tasks": [
-				"e6e36235-0d4d-4390-a24d-53c571381e84"
+				"d19c12d2-103b-47ba-9220-bca26b41256e"
 			]
 		},
 		{
 			"uuid": "14e50906-d17f-46d0-9095-b2f4de727039",
 			"title": "Done",
 			"tasks": [
+				"e6e36235-0d4d-4390-a24d-53c571381e84",
 				"039ab90a-5d3b-4321-8ca4-33de5d3083c4",
 				"72a62c8c-65d7-421c-9a2d-56b4778a190b"
 			]
@@ -80,7 +79,7 @@
 		},
 		{
 			"uuid": "d19c12d2-103b-47ba-9220-bca26b41256e",
-			"title": "Start procedual generation",
+			"title": "Code procedual buildinggeneration",
 			"description": "",
 			"category": "69dc4c72-6a17-4f15-a8ce-0810a1b197a7",
 			"steps": []
@@ -90,13 +89,6 @@
 			"title": "Rig Endoskeleton",
 			"description": "",
 			"category": "6cbd24c6-3cbf-4cb3-a1ea-ade9a802c6eb",
-			"steps": []
-		},
-		{
-			"uuid": "75f377fe-867d-448c-b48f-e318872e07d2",
-			"title": "Finish procedual generation",
-			"description": "",
-			"category": "69dc4c72-6a17-4f15-a8ce-0810a1b197a7",
 			"steps": []
 		},
 		{

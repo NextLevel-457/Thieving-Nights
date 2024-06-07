@@ -1,6 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://cspajcrynpclt"]
+[gd_scene load_steps=8 format=3 uid="uid://cspajcrynpclt"]
 
 [ext_resource type="Script" path="res://Scripts/building.gd" id="1_rkegi"]
+[ext_resource type="PackedScene" uid="uid://w1mf8ycl5vr8" path="res://Scenes/room.tscn" id="2_57f6o"]
+[ext_resource type="PackedScene" uid="uid://dgpjxoygnvyy4" path="res://Scenes/Player.tscn" id="2_fk3ml"]
+[ext_resource type="PackedScene" uid="uid://dlsu738gskl1t" path="res://Scenes/Animatronics/endoskeleton.tscn" id="4_1fopp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dyb1f"]
+
+[sub_resource type="Sky" id="Sky_elc0c"]
+sky_material = SubResource("ProceduralSkyMaterial_dyb1f")
+
+[sub_resource type="Environment" id="Environment_umkx3"]
+background_mode = 2
+sky = SubResource("Sky_elc0c")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.99
+tonemap_mode = 3
+glow_enabled = true
+glow_bloom = 1.0
 
 [node name="Building" type="Node3D"]
 script = ExtResource("1_rkegi")
+room_generator_scene = ExtResource("2_57f6o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.901077, -0.346791, 0.260378, 0, 0.60042, 0.799685, -0.433659, -0.720577, 0.541025, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_fk3ml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_umkx3")
+
+[node name="Endoskeleton" parent="." instance=ExtResource("4_1fopp")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.5, -5)

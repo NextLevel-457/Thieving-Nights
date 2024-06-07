@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://6nyjys8st2n1"
-path="res://.godot/imported/Endoskeleton.blend-745e77258e7e89dc0c69977c5979b066.scn"
+path="res://.godot/imported/Endoskeleton.blend-1dbcab2004c6b964e1ddaea8147b7342.scn"
 
 [deps]
 
-source_file="res://Assets/Endoskeleton.blend"
-dest_files=["res://.godot/imported/Endoskeleton.blend-745e77258e7e89dc0c69977c5979b066.scn"]
+source_file="res://Assets/Animatronics/Endoskeleton.blend"
+dest_files=["res://.godot/imported/Endoskeleton.blend-1dbcab2004c6b964e1ddaea8147b7342.scn"]
 
 [params]
 
@@ -29,7 +29,14 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Placeholder": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Eye.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
 blender/nodes/visible=0
