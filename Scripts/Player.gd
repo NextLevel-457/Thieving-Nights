@@ -50,6 +50,7 @@ func _input(event):
 				flashlight.show()
 
 func _physics_process(delta):
+	@warning_ignore("unused_variable")
 	var moving = false
 	# Add the gravity. Pulls value from project settings.
 	if not is_on_floor():

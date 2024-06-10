@@ -9,7 +9,8 @@ enum types {
 	PARTS_AND_SERVICE,
 	OFFICE,
 	PIRATE_COVE,
-	BATHROOMS
+	BATHROOMS,
+	ENTRANCE,
 }
 
 var type: types
