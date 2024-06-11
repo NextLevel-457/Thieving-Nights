@@ -11,6 +11,7 @@ enum types {
 	PIRATE_COVE,
 	BATHROOMS,
 	ENTRANCE,
+	HALLWAY,
 }
 
 var type: types

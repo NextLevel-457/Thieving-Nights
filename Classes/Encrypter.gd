@@ -46,12 +46,31 @@ static var code: Dictionary = {
 	"9": 209,
 	"0": 200,
 	" ": 33,
+	'"': 34,
+	"'": 35,
 }
 
 static func encode(value):
 	var encoded_value = []
-	for character in str(value):
+	for character in JSON.stringify(value):
 		if not character == "":
-			encoded_value.append(str(code[character]))
+			encoded_value.append("".join([str(code[character]),"|"]))
 	encoded_value = "".join(encoded_value)
 	return encoded_value
+
+static func decode(value: String):
+	var decoded_value = []
+	var characters = []
+	var temp_array = []
+	for character in value:
+		if not character == "":
+			if character == "|":
+				characters.append(int("".join(temp_array)))
+				temp_array = []
+			else:
+				temp_array.append(character)
+	for encoded_character in characters:
+		decoded_value.append(code.find_key(encoded_character))
+	decoded_value = "".join(decoded_value)
+	return JSON.parse_string(decoded_value)
+
