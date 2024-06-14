@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://mi1vuix2fbbb"]
+
+[ext_resource type="Script" path="res://Scripts/Moon.gd" id="1_uyrcv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dyb1f"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0.0408334, 0.35, 1)
+sky_energy_multiplier = 0.5
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0.0408334, 0.35, 1)
+ground_energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_elc0c"]
+sky_material = SubResource("ProceduralSkyMaterial_dyb1f")
+
+[sub_resource type="Environment" id="Environment_umkx3"]
+background_mode = 2
+sky = SubResource("Sky_elc0c")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.99
+tonemap_mode = 3
+ssil_sharpness = 1.0
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 0.25
+glow_blend_mode = 0
+
+[sub_resource type="Gradient" id="Gradient_28ro8"]
+offsets = PackedFloat32Array(0.126984, 0.404762)
+colors = PackedColorArray(0.521141, 0.521141, 0.521141, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7p4fn"]
+noise_type = 2
+seed = 2
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4rbd5"]
+seamless = true
+color_ramp = SubResource("Gradient_28ro8")
+noise = SubResource("FastNoiseLite_7p4fn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4asq"]
+shading_mode = 0
+albedo_color = Color(0.831373, 1, 1, 1)
+albedo_texture = SubResource("NoiseTexture2D_4rbd5")
+uv1_scale = Vector3(2, 1, 1)
+uv1_offset = Vector3(0.65, 0, 0)
+billboard_mode = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_51tko"]
+material = SubResource("StandardMaterial3D_l4asq")
+radius = 5.0
+height = 10.0
+
+[node name="Environment" type="Node3D"]
+
+[node name="Lighting" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.894154, -0.40873, 0.182834, 0, 0.40833, 0.912834, -0.447759, -0.816215, 0.36511, 20, 100, 40)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="VFX" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_umkx3")
+
+[node name="Moon" type="MeshInstance3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 100, 40)
+mesh = SubResource("SphereMesh_51tko")
+script = ExtResource("1_uyrcv")
+player = NodePath("")

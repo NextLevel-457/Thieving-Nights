@@ -16,7 +16,7 @@ enum directions {
 }
 
 var entry_side: directions
-var main_room_dimensions: Vector3i = Vector3i(randi_range(15,25),randi_range(5,8),randi_range(15,25))
+var main_room_dimensions: Vector3 = Vector3(randi_range(15,25),randi_range(5,8),randi_range(15,25))
 var open_directions: Array[directions] = [directions.POSITIVE_Z,directions.NEGATIVE_X,directions.POSITIVE_X]
 
 func _ready():
@@ -46,7 +46,7 @@ func generate():
 	var z_offset = abs(main_room_dimensions.z / 2.0)
 	match entry_side:
 		directions.POSITIVE_Z:
-			var entry_room_dimensions: Vector3i = Vector3i(randi_range(8,12),randi_range(4,7),randi_range(12,15))
+			var entry_room_dimensions: Vector3 = Vector3(randi_range(8,12),randi_range(4,7),randi_range(12,15))
 			var offset = z_offset + abs(entry_room_dimensions.z / 2.0)
 			var entry_room: RoomGenerator = room_generator_scene.instantiate()
 			entry_room.dimensions = entry_room_dimensions
@@ -56,7 +56,7 @@ func generate():
 			add_child(entry_room)
 			entry_room.type = Room.types.ENTRANCE
 		directions.POSITIVE_X:
-			var entry_room_dimensions: Vector3i = Vector3i(randi_range(12,15),randi_range(4,7),randi_range(8,12))
+			var entry_room_dimensions: Vector3 = Vector3(randi_range(12,15),randi_range(4,7),randi_range(8,12))
 			var offset = x_offset + abs(entry_room_dimensions.x / 2.0)
 			var entry_room: RoomGenerator = room_generator_scene.instantiate()
 			entry_room.dimensions = entry_room_dimensions
@@ -66,7 +66,7 @@ func generate():
 			add_child(entry_room)
 			entry_room.type = Room.types.ENTRANCE
 		directions.NEGATIVE_X:
-			var entry_room_dimensions: Vector3i = Vector3i(randi_range(12,15),randi_range(4,7),randi_range(8,12))
+			var entry_room_dimensions: Vector3 = Vector3(randi_range(12,15),randi_range(4,7),randi_range(8,12))
 			var offset = x_offset + abs(entry_room_dimensions.x / 2.0)
 			var entry_room: RoomGenerator = room_generator_scene.instantiate()
 			entry_room.dimensions = entry_room_dimensions
@@ -79,15 +79,15 @@ func generate():
 	open_directions.erase(entry_side)
 	
 	# Generation of hallways
-	var open_room_spots: Array[Vector3i] = []
-	var ors_directions: Array[Vector3i] = []
+	var open_room_spots: Array[Vector3] = []
+	var ors_directions: Array[Vector3] = []
 	print("generating hallways\n")
 	print("for reference, negative z is ", directions.NEGATIVE_Z)
 	print(open_directions)
 	for direction in open_directions:
 		match direction:
 			directions.POSITIVE_Z:
-				var hallway_dimensions: Vector3i = Vector3i(randi_range(5,8),randi_range(4,5),randi_range(10,15))
+				var hallway_dimensions: Vector3 = Vector3(randi_range(5,8),randi_range(4,5),randi_range(10,15))
 				var offset = z_offset + abs(hallway_dimensions.z / 2.0)
 				var hallway: RoomGenerator = room_generator_scene.instantiate()
 				hallway.dimensions = hallway_dimensions
@@ -96,29 +96,29 @@ func generate():
 				hallway.wall_3_door = true
 				hallway.wall_4_door = true
 				hallway.position = Vector3(0,0,offset)
-				open_room_spots.append(Vector3i(
+				open_room_spots.append(Vector3(
 					hallway.position.x + (hallway.dimensions.x / 2),
 					hallway.position.y,
 					hallway.position.z))
-				ors_directions.append(Vector3i(1,1,0))
+				ors_directions.append(Vector3(1,1,0))
 				print("ors directions\n\n\n\n")
 				print(ors_directions)
-				open_room_spots.append(Vector3i(
+				open_room_spots.append(Vector3(
 					hallway.position.x - (hallway.dimensions.x / 2),
 					hallway.position.y,
 					hallway.position.z))
-				ors_directions.append(Vector3i(-1,1,0))
-				open_room_spots.append(Vector3i(
+				ors_directions.append(Vector3(-1,1,0))
+				open_room_spots.append(Vector3(
 					hallway.position.x,
 					hallway.position.y,
 					hallway.position.z + (hallway.dimensions.z / 2)))
-				ors_directions.append(Vector3i(0,1,1))
+				ors_directions.append(Vector3(0,1,1))
 				print('generating at positive Z with position:')
 				print(hallway.position)
 				add_child(hallway)
 				hallway.type = Room.types.HALLWAY
 			directions.POSITIVE_X:
-				var hallway_dimensions: Vector3i = Vector3i(randi_range(10,15),randi_range(4,5),randi_range(5,8))
+				var hallway_dimensions: Vector3 = Vector3(randi_range(10,15),randi_range(4,5),randi_range(5,8))
 				var offset = x_offset + abs(hallway_dimensions.x / 2.0)
 				var hallway: RoomGenerator = room_generator_scene.instantiate()
 				hallway.dimensions = hallway_dimensions
@@ -126,28 +126,28 @@ func generate():
 				hallway.wall_2_door = true
 				hallway.wall_3_door = true
 				hallway.wall_4_door = true
-				hallway.position = Vector3i(offset,0,0)
-				open_room_spots.append(Vector3i(
+				hallway.position = Vector3(offset,0,0)
+				open_room_spots.append(Vector3(
 					hallway.position.x,
 					hallway.position.y,
 					hallway.position.z - (hallway.dimensions.z / 2)))
-				ors_directions.append(Vector3i(0,1,-1))
-				open_room_spots.append(Vector3i(
+				ors_directions.append(Vector3(0,1,-1))
+				open_room_spots.append(Vector3(
 					hallway.position.x + (hallway.dimensions.x / 2),
 					hallway.position.y,
 					hallway.position.z))
-				ors_directions.append(Vector3i(1,1,0))
-				open_room_spots.append(Vector3i(
+				ors_directions.append(Vector3(1,1,0))
+				open_room_spots.append(Vector3(
 					hallway.position.x,
 					hallway.position.y,
 					hallway.position.z + (hallway.dimensions.z / 2)))
-				ors_directions.append(Vector3i(0,1,1))
+				ors_directions.append(Vector3(0,1,1))
 				print('generating at positive X with position:')
 				print(hallway.position)
 				add_child(hallway)
 				hallway.type = Room.types.HALLWAY
 			directions.NEGATIVE_X:
-				var hallway_dimensions: Vector3i = Vector3i(randi_range(10,15),randi_range(4,5),randi_range(5,8))
+				var hallway_dimensions: Vector3 = Vector3(randi_range(10,15),randi_range(4,5),randi_range(5,8))
 				var offset = x_offset + abs(hallway_dimensions.x / 2.0)
 				var hallway: RoomGenerator = room_generator_scene.instantiate()
 				hallway.dimensions = hallway_dimensions
@@ -155,39 +155,36 @@ func generate():
 				hallway.wall_2_door = true
 				hallway.wall_3_door = true
 				hallway.wall_4_door = true
-				hallway.position = Vector3i(-offset,0,0)
-				open_room_spots.append(Vector3i(
+				hallway.position = Vector3(-offset,0,0)
+				open_room_spots.append(Vector3(
 					hallway.position.x,
 					hallway.position.y,
 					hallway.position.z - (hallway.dimensions.z / 2)))
-				ors_directions.append(Vector3i(0,1,-1))
-				open_room_spots.append(Vector3i(
+				ors_directions.append(Vector3(0,1,-1))
+				open_room_spots.append(Vector3(
 					hallway.position.x - (hallway.dimensions.x / 2),
 					hallway.position.y,
 					hallway.position.z))
-				ors_directions.append(Vector3i(-1,1,0))
-				open_room_spots.append(Vector3i(
+				ors_directions.append(Vector3(-1,1,0))
+				open_room_spots.append(Vector3(
 					hallway.position.x,
 					hallway.position.y,
 					hallway.position.z + (hallway.dimensions.z / 2)))
-				ors_directions.append(Vector3i(0,1,1))
+				ors_directions.append(Vector3(0,1,1))
 				print('generating at negative X with position:')
 				print(hallway.position)
 				add_child(hallway)
 				hallway.type = Room.types.HALLWAY
 	for pos in open_room_spots:
 		var index = open_room_spots.find(pos)
-		var direction: Vector3i = ors_directions[index]
+		var direction: Vector3 = ors_directions[index]
 		
 		var room: RoomGenerator = room_generator_scene.instantiate()
-		var room_dimensions = Vector3i(randi_range(5,10),randi_range(7,8),randi_range(5,10))
+		var room_dimensions = Vector3(randi_range(5,10),randi_range(7,8),randi_range(5,10))
 		room.dimensions = room_dimensions
 		var offset = room_dimensions / 2
 		offset.y = 0
-		offset = offset * direction
-		var marker = marker_scene.instantiate()
-		marker.position = pos + offset
-		add_child(marker)
+		offset *= direction
 		room.position = pos + offset
 		room.position.y = 0
 		add_child(room)
