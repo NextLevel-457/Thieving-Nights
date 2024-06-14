@@ -15,6 +15,13 @@ enum directions {
 	POSITIVE_X
 }
 
+const wall_dir_correlations = {
+	directions.NEGATIVE_Z: 2,
+	directions.POSITIVE_Z: 4,
+	directions.NEGATIVE_X: 1,
+	directions.POSITIVE_X: 3,
+}
+
 var entry_side: directions
 var main_room_dimensions: Vector3 = Vector3(randi_range(15,25),randi_range(5,8),randi_range(15,25))
 var open_directions: Array[directions] = [directions.POSITIVE_Z,directions.NEGATIVE_X,directions.POSITIVE_X]
@@ -100,19 +107,19 @@ func generate():
 					hallway.position.x + (hallway.dimensions.x / 2),
 					hallway.position.y,
 					hallway.position.z))
-				ors_directions.append(Vector3(1,1,0))
+				ors_directions.append(Vector3(1,0,0))
 				print("ors directions\n\n\n\n")
 				print(ors_directions)
 				open_room_spots.append(Vector3(
 					hallway.position.x - (hallway.dimensions.x / 2),
 					hallway.position.y,
 					hallway.position.z))
-				ors_directions.append(Vector3(-1,1,0))
+				ors_directions.append(Vector3(-1,0,0))
 				open_room_spots.append(Vector3(
 					hallway.position.x,
 					hallway.position.y,
 					hallway.position.z + (hallway.dimensions.z / 2)))
-				ors_directions.append(Vector3(0,1,1))
+				ors_directions.append(Vector3(0,0,1))
 				print('generating at positive Z with position:')
 				print(hallway.position)
 				add_child(hallway)
@@ -131,17 +138,17 @@ func generate():
 					hallway.position.x,
 					hallway.position.y,
 					hallway.position.z - (hallway.dimensions.z / 2)))
-				ors_directions.append(Vector3(0,1,-1))
+				ors_directions.append(Vector3(0,0,-1))
 				open_room_spots.append(Vector3(
 					hallway.position.x + (hallway.dimensions.x / 2),
 					hallway.position.y,
 					hallway.position.z))
-				ors_directions.append(Vector3(1,1,0))
+				ors_directions.append(Vector3(1,0,0))
 				open_room_spots.append(Vector3(
 					hallway.position.x,
 					hallway.position.y,
 					hallway.position.z + (hallway.dimensions.z / 2)))
-				ors_directions.append(Vector3(0,1,1))
+				ors_directions.append(Vector3(0,0,1))
 				print('generating at positive X with position:')
 				print(hallway.position)
 				add_child(hallway)
@@ -160,17 +167,17 @@ func generate():
 					hallway.position.x,
 					hallway.position.y,
 					hallway.position.z - (hallway.dimensions.z / 2)))
-				ors_directions.append(Vector3(0,1,-1))
+				ors_directions.append(Vector3(0,0,-1))
 				open_room_spots.append(Vector3(
 					hallway.position.x - (hallway.dimensions.x / 2),
 					hallway.position.y,
 					hallway.position.z))
-				ors_directions.append(Vector3(-1,1,0))
+				ors_directions.append(Vector3(-1,0,0))
 				open_room_spots.append(Vector3(
 					hallway.position.x,
 					hallway.position.y,
 					hallway.position.z + (hallway.dimensions.z / 2)))
-				ors_directions.append(Vector3(0,1,1))
+				ors_directions.append(Vector3(0,0,1))
 				print('generating at negative X with position:')
 				print(hallway.position)
 				add_child(hallway)
@@ -185,6 +192,15 @@ func generate():
 		var offset = room_dimensions / 2
 		offset.y = 0
 		offset *= direction
+		match direction:
+			Vector3(1,0,0):
+				room.wall_1_door = true
+			Vector3(-1,0,0):
+				room.wall_3_door = true
+			Vector3(0,0,1):
+				room.wall_2_door = true
+			Vector3(0,0,-1):
+				room.wall_4_door = true
 		room.position = pos + offset
 		room.position.y = 0
 		add_child(room)
