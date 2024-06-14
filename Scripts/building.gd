@@ -3,6 +3,7 @@ extends Node3D
 class_name BuildingGenerator
 
 @export var room_generator_scene: PackedScene
+var marker_scene: PackedScene = preload("res://Scenes/Debug Tools/marker.tscn")
 
 var room_list: Array[StringName] = ['DiningArea','Entrance','Kitchen','SupplyCloset','PartsAndService','Office','PirateCove','Bathrooms']
 var rooms: Array[Room] = []
@@ -78,6 +79,8 @@ func generate():
 	open_directions.erase(entry_side)
 	
 	# Generation of hallways
+	var open_room_spots: Array[Vector3i] = []
+	var ors_directions: Array[Vector3i] = []
 	print("generating hallways\n")
 	print("for reference, negative z is ", directions.NEGATIVE_Z)
 	print(open_directions)
@@ -93,6 +96,23 @@ func generate():
 				hallway.wall_3_door = true
 				hallway.wall_4_door = true
 				hallway.position = Vector3(0,0,offset)
+				open_room_spots.append(Vector3i(
+					hallway.position.x + (hallway.dimensions.x / 2),
+					hallway.position.y,
+					hallway.position.z))
+				ors_directions.append(Vector3i(1,1,0))
+				print("ors directions\n\n\n\n")
+				print(ors_directions)
+				open_room_spots.append(Vector3i(
+					hallway.position.x - (hallway.dimensions.x / 2),
+					hallway.position.y,
+					hallway.position.z))
+				ors_directions.append(Vector3i(-1,1,0))
+				open_room_spots.append(Vector3i(
+					hallway.position.x,
+					hallway.position.y,
+					hallway.position.z + (hallway.dimensions.z / 2)))
+				ors_directions.append(Vector3i(0,1,1))
 				print('generating at positive Z with position:')
 				print(hallway.position)
 				add_child(hallway)
@@ -106,7 +126,22 @@ func generate():
 				hallway.wall_2_door = true
 				hallway.wall_3_door = true
 				hallway.wall_4_door = true
-				hallway.position = Vector3(offset,0,0)
+				hallway.position = Vector3i(offset,0,0)
+				open_room_spots.append(Vector3i(
+					hallway.position.x,
+					hallway.position.y,
+					hallway.position.z - (hallway.dimensions.z / 2)))
+				ors_directions.append(Vector3i(0,1,-1))
+				open_room_spots.append(Vector3i(
+					hallway.position.x + (hallway.dimensions.x / 2),
+					hallway.position.y,
+					hallway.position.z))
+				ors_directions.append(Vector3i(1,1,0))
+				open_room_spots.append(Vector3i(
+					hallway.position.x,
+					hallway.position.y,
+					hallway.position.z + (hallway.dimensions.z / 2)))
+				ors_directions.append(Vector3i(0,1,1))
 				print('generating at positive X with position:')
 				print(hallway.position)
 				add_child(hallway)
@@ -120,8 +155,39 @@ func generate():
 				hallway.wall_2_door = true
 				hallway.wall_3_door = true
 				hallway.wall_4_door = true
-				hallway.position = Vector3(-offset,0,0)
+				hallway.position = Vector3i(-offset,0,0)
+				open_room_spots.append(Vector3i(
+					hallway.position.x,
+					hallway.position.y,
+					hallway.position.z - (hallway.dimensions.z / 2)))
+				ors_directions.append(Vector3i(0,1,-1))
+				open_room_spots.append(Vector3i(
+					hallway.position.x - (hallway.dimensions.x / 2),
+					hallway.position.y,
+					hallway.position.z))
+				ors_directions.append(Vector3i(-1,1,0))
+				open_room_spots.append(Vector3i(
+					hallway.position.x,
+					hallway.position.y,
+					hallway.position.z + (hallway.dimensions.z / 2)))
+				ors_directions.append(Vector3i(0,1,1))
 				print('generating at negative X with position:')
 				print(hallway.position)
 				add_child(hallway)
 				hallway.type = Room.types.HALLWAY
+	for pos in open_room_spots:
+		var index = open_room_spots.find(pos)
+		var direction: Vector3i = ors_directions[index]
+		
+		var room: RoomGenerator = room_generator_scene.instantiate()
+		var room_dimensions = Vector3i(randi_range(5,10),randi_range(7,8),randi_range(5,10))
+		room.dimensions = room_dimensions
+		var offset = room_dimensions / 2
+		offset.y = 0
+		offset = offset * direction
+		var marker = marker_scene.instantiate()
+		marker.position = pos + offset
+		add_child(marker)
+		room.position = pos + offset
+		room.position.y = 0
+		add_child(room)

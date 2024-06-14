@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name Player
+
 const ACCEL = 10
 const DEACCEL = 30
 
