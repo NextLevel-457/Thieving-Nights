@@ -187,7 +187,7 @@ func generate():
 		var direction: Vector3 = ors_directions[index]
 		
 		var room: RoomGenerator = room_generator_scene.instantiate()
-		var room_dimensions = Vector3(randi_range(5,10),randi_range(7,8),randi_range(5,10))
+		var room_dimensions = Vector3(randi_range(5,10),randi_range(5,6),randi_range(5,10))
 		room.dimensions = room_dimensions
 		var offset = room_dimensions / 2
 		offset.y = 0

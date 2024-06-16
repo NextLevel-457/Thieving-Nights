@@ -12,7 +12,6 @@ script = ExtResource("1_rkegi")
 room_generator_scene = ExtResource("2_57f6o")
 
 [node name="Player" parent="." instance=ExtResource("2_fk3ml")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Endoskeleton" parent="." instance=ExtResource("4_1fopp")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.5, -5)
@@ -21,4 +20,13 @@ transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 
 player = NodePath("../Player")
 
 [node name="Table" parent="." instance=ExtResource("6_841la")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+
+[node name="Table2" parent="." instance=ExtResource("6_841la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="Table3" parent="." instance=ExtResource("6_841la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="Table4" parent="." instance=ExtResource("6_841la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)

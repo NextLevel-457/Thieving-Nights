@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgpjxoygnvyy4"]
+[gd_scene load_steps=6 format=3 uid="uid://dgpjxoygnvyy4"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_cp0vl"]
 [ext_resource type="Script" path="res://Scripts/ability_grab.gd" id="2_l5dmv"]
@@ -18,8 +18,6 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8, 0.2)
 metadata/_snap_enabled = true
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_x80rp"]
-
 [node name="Player" type="CharacterBody3D"]
 disable_mode = 2
 collision_mask = 2
@@ -38,7 +36,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="flashlight_player" type="SpotLight3D" parent="rotation_helper/Camera3D"]
 visible = false
-light_energy = 3.0
 light_projector = SubResource("GradientTexture2D_r4uxi")
 light_bake_mode = 0
 shadow_enabled = true
@@ -52,7 +49,3 @@ script = ExtResource("2_l5dmv")
 
 [node name="GrabPosition3D" type="Marker3D" parent="rotation_helper/Camera3D/ability_grab"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-
-[node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_x80rp")
