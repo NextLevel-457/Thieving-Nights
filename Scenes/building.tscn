@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cspajcrynpclt"]
+[gd_scene load_steps=7 format=3 uid="uid://cspajcrynpclt"]
 
 [ext_resource type="Script" path="res://Scripts/building.gd" id="1_rkegi"]
 [ext_resource type="PackedScene" uid="uid://w1mf8ycl5vr8" path="res://Scenes/room.tscn" id="2_57f6o"]
 [ext_resource type="PackedScene" uid="uid://dgpjxoygnvyy4" path="res://Scenes/Player.tscn" id="2_fk3ml"]
 [ext_resource type="PackedScene" uid="uid://dlsu738gskl1t" path="res://Scenes/Animatronics/endoskeleton.tscn" id="4_1fopp"]
 [ext_resource type="PackedScene" uid="uid://mi1vuix2fbbb" path="res://Scenes/environment.tscn" id="5_lpt07"]
+[ext_resource type="PackedScene" uid="uid://bstw1d1rhkm75" path="res://Assets/Table.blend" id="6_841la"]
 
 [node name="Building" type="Node3D"]
 script = ExtResource("1_rkegi")
@@ -18,3 +19,6 @@ transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 
 
 [node name="Environment" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lpt07")]
 player = NodePath("../Player")
+
+[node name="Table" parent="." instance=ExtResource("6_841la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2.5)
