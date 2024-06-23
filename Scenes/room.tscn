@@ -130,3 +130,6 @@ mesh = SubResource("BoxMesh_gtgfx")
 [node name="Wall4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 2.25)
 mesh = SubResource("BoxMesh_2lvwr")
+
+[node name="Data" type="Node" parent="."]
+metadata/dimensions = Vector3(0, 0, 0)

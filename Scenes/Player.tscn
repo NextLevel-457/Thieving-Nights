@@ -20,13 +20,12 @@ metadata/_snap_enabled = true
 
 [node name="Player" type="CharacterBody3D"]
 disable_mode = 2
-collision_mask = 2
+collision_mask = 6
 floor_max_angle = 0.802851
 script = ExtResource("1_cp0vl")
 
 [node name="body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
 shape = SubResource("CapsuleShape3D_euj4i")
 
 [node name="rotation_helper" type="Node3D" parent="."]
