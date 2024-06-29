@@ -62,6 +62,8 @@ func generate():
 			entry_room.position = Vector3(0,0,offset)
 			add_child(entry_room)
 			entry_room.type = Room.types.ENTRANCE
+			print('Entry Room Dimensions')
+			print(entry_room_dimensions)
 		directions.POSITIVE_X:
 			var entry_room_dimensions: Vector3 = Vector3(randi_range(12,15),randi_range(4,7),randi_range(8,12))
 			var offset = x_offset + abs(entry_room_dimensions.x / 2.0)
@@ -72,6 +74,8 @@ func generate():
 			entry_room.position = Vector3(offset,0,0)
 			add_child(entry_room)
 			entry_room.type = Room.types.ENTRANCE
+			print('Entry Room Dimensions')
+			print(entry_room_dimensions)
 		directions.NEGATIVE_X:
 			var entry_room_dimensions: Vector3 = Vector3(randi_range(12,15),randi_range(4,7),randi_range(8,12))
 			var offset = x_offset + abs(entry_room_dimensions.x / 2.0)
@@ -82,6 +86,8 @@ func generate():
 			entry_room.position = Vector3(-offset,0,0)
 			add_child(entry_room)
 			entry_room.type = Room.types.ENTRANCE
+			print('Entry Room Dimensions')
+			print(entry_room_dimensions)
 	room_list.erase('Entrance')
 	open_directions.erase(entry_side)
 	

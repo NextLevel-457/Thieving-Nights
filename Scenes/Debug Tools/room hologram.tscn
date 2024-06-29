@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://gout6xf6orvs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y4dw8"]
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smry5"]
+transparency = 1
+albedo_color = Color(4.81307e-07, 0.785042, 0.787814, 0.47451)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6wyui"]
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ggnxo"]
+size = Vector3(0.5, 4, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ttfi6"]
+size = Vector3(4, 4, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hutfk"]
+size = Vector3(0.5, 4, 5)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_y4dw8")
+surface_material_override/0 = SubResource("StandardMaterial3D_smry5")
+
+[node name="Ceiling" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.75, 0)
+mesh = SubResource("BoxMesh_6wyui")
+surface_material_override/0 = SubResource("StandardMaterial3D_smry5")
+
+[node name="Wall1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 2.5, 0)
+mesh = SubResource("BoxMesh_ggnxo")
+surface_material_override/0 = SubResource("StandardMaterial3D_smry5")
+
+[node name="Wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.25)
+mesh = SubResource("BoxMesh_ttfi6")
+surface_material_override/0 = SubResource("StandardMaterial3D_smry5")
+
+[node name="Wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 2.5, 0)
+mesh = SubResource("BoxMesh_hutfk")
+surface_material_override/0 = SubResource("StandardMaterial3D_smry5")
+
+[node name="Wall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 2.25)
+mesh = SubResource("BoxMesh_ttfi6")
+surface_material_override/0 = SubResource("StandardMaterial3D_smry5")

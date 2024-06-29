@@ -21,6 +21,7 @@ func _ready():
 		resize()
 		rebuild()
 		generate_collisions()
+		get_node("Data").set_meta("dimensions",dimensions)
 		set_script(preload("res://Classes/Room.gd"))
 
 var last_frame_dimensions: Vector3 = dimensions
