@@ -11,6 +11,7 @@ class_name RoomGenerator
 @export var wall_3_door: bool = false
 @export var wall_4_door: bool = false
 @onready var meshes: Array[MeshInstance3D] = [$Wall1Node/Top, $Wall1Node/Side1, $Wall1Node/Side2, $Wall2Node/Top, $Wall2Node/Side1, $Wall2Node/Side2, $Wall3Node/Top, $Wall3Node/Side1, $Wall3Node/Side2, $Wall4Node/Top, $Wall4Node/Side1, $Wall4Node/Side2, $Floor, $Ceiling, $Wall1, $Wall2, $Wall3, $Wall4]
+@onready var data = get_node("Data")
 
 func _ready():
 	if Engine.is_editor_hint():
@@ -21,7 +22,7 @@ func _ready():
 		resize()
 		rebuild()
 		generate_collisions()
-		get_node("Data").set_meta("dimensions",dimensions)
+		data.set_meta("dimensions",dimensions)
 		set_script(preload("res://Classes/Room.gd"))
 
 var last_frame_dimensions: Vector3 = dimensions

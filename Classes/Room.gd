@@ -52,5 +52,21 @@ func _init():
 	prop_spots["Top_Southwest"] = Vector3((dimensions.x / 2) - 0.5,dimensions.y - 0.5,(dimensions.z / 2) - 0.5)
 	prop_spots["Top_Northwest"] = Vector3((dimensions.x / 2) - 0.5,dimensions.y - 0.5,(-dimensions.z / 2) + 0.5)
 
-func place_prop():
-	pass
+func place_prop(prop: Node3D, prop_dimensions: Vector3, prop_spot: String):
+	var prop_position = prop_spots[prop_spot]
+	match prop_spot:
+		"Bottom":
+			pass
+		"Bottom_North":
+			prop_position.z += prop_dimensions.z / 2
+		"Bottom_South":
+			prop_position.z -= prop_dimensions.z / 2
+		"Bottom_East":
+			prop_position.x += prop_dimensions.x / 2
+			prop.rotate_y(deg_to_rad(90))
+		"Bottom_West":
+			prop_position.x -= prop_dimensions.x / 2
+			prop.rotate_y(deg_to_rad(-90))
+	
+	prop.position = prop_position
+	add_child(prop)

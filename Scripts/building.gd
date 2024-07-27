@@ -28,6 +28,8 @@ var open_directions: Array[directions] = [directions.POSITIVE_Z,directions.NEGAT
 
 func _ready():
 	generate()
+	for room in rooms:
+		print(room.type)
 
 func generate():
 	# Generation of Dining Area.
@@ -61,6 +63,8 @@ func generate():
 			entry_room.wall_4_door = true
 			entry_room.position = Vector3(0,0,offset)
 			add_child(entry_room)
+			rooms.append(entry_room)
+			room_list.erase('Entrance')
 			entry_room.type = Room.types.ENTRANCE
 			print('Entry Room Dimensions')
 			print(entry_room_dimensions)
@@ -73,6 +77,8 @@ func generate():
 			entry_room.wall_3_door = true
 			entry_room.position = Vector3(offset,0,0)
 			add_child(entry_room)
+			rooms.append(entry_room)
+			room_list.erase('Entrance')
 			entry_room.type = Room.types.ENTRANCE
 			print('Entry Room Dimensions')
 			print(entry_room_dimensions)
@@ -85,6 +91,8 @@ func generate():
 			entry_room.wall_3_door = true
 			entry_room.position = Vector3(-offset,0,0)
 			add_child(entry_room)
+			rooms.append(entry_room)
+			room_list.erase('Entrance')
 			entry_room.type = Room.types.ENTRANCE
 			print('Entry Room Dimensions')
 			print(entry_room_dimensions)
@@ -129,6 +137,7 @@ func generate():
 				print('generating at positive Z with position:')
 				print(hallway.position)
 				add_child(hallway)
+				rooms.append(hallway)
 				hallway.type = Room.types.HALLWAY
 			directions.POSITIVE_X:
 				var hallway_dimensions: Vector3 = Vector3(randi_range(10,15),randi_range(4,5),randi_range(5,8))
@@ -158,6 +167,7 @@ func generate():
 				print('generating at positive X with position:')
 				print(hallway.position)
 				add_child(hallway)
+				rooms.append(hallway)
 				hallway.type = Room.types.HALLWAY
 			directions.NEGATIVE_X:
 				var hallway_dimensions: Vector3 = Vector3(randi_range(10,15),randi_range(4,5),randi_range(5,8))
@@ -187,6 +197,7 @@ func generate():
 				print('generating at negative X with position:')
 				print(hallway.position)
 				add_child(hallway)
+				rooms.append(hallway)
 				hallway.type = Room.types.HALLWAY
 	for pos in open_room_spots:
 		var index = open_room_spots.find(pos)
@@ -210,3 +221,32 @@ func generate():
 		room.position = pos + offset
 		room.position.y = 0
 		add_child(room)
+		rooms.append(room)
+		match room_list.pick_random():
+			'Kitchen':
+				room_list.erase('Kitchen')
+				match direction:
+					Vector3(1,0,0):
+						room.place_prop(load("res://Assets/Oven.blend").instantiate(), Vector3(2,0.75,1), 'Bottom_West')
+					Vector3(-1,0,0):
+						room.place_prop(load("res://Assets/Oven.blend").instantiate(), Vector3(2,0.75,1), 'Bottom_East')
+					Vector3(0,0,1):
+						room.place_prop(load("res://Assets/Oven.blend").instantiate(), Vector3(2,0.75,1), 'Bottom_South')
+					Vector3(0,0,-1):
+						room.place_prop(load("res://Assets/Oven.blend").instantiate(), Vector3(2,0.75,1), 'Bottom_North')
+				room.type = Room.types.KITCHEN
+			'SupplyCloset':
+				room_list.erase('SupplyCloset')
+				room.type = Room.types.SUPPLY_CLOSET
+			'PartsAndService':
+				room_list.erase('PartsAndService')
+				room.type = Room.types.PARTS_AND_SERVICE
+			'Office':
+				room_list.erase('Office')
+				room.type = Room.types.OFFICE
+			'PirateCove':
+				room_list.erase('PirateCove')
+				room.type = Room.types.PIRATE_COVE
+			'Bathrooms':
+				room_list.erase('Bathrooms')
+				room.type = Room.types.BATHROOMS
